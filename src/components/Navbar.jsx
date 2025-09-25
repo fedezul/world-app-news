@@ -1,23 +1,36 @@
+import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Globe, Zap, Cpu, Briefcase, Palette, Star, Sun, Moon } from "lucide-react";
+import { toggleDarkMode, initDarkMode, categories } from "../utils/utils";
 
-export const Navbar = ({ darkMode, toggleDarkMode }) => {
-  const categories = [
-    { slug: "world", name: "World", icon: Globe },
-    { slug: "sport", name: "Sport", icon: Zap },
-    { slug: "tech", name: "Tech", icon: Cpu },
-    { slug: "business", name: "Business", icon: Briefcase },
-    { slug: "culture", name: "Culture", icon: Palette },
-  ];
+export const Navbar = () => {
+  const [darkMode, setDarkMode] = useState(false);
+
+  // Al mount inizializza il tema
+  useEffect(() => {
+    initDarkMode();
+    setDarkMode(document.documentElement.classList.contains("dark"));
+  }, []);
+
+  // Gestore toggle
+  const handleToggle = () => {
+    toggleDarkMode();
+    setDarkMode(document.documentElement.classList.contains("dark"));
+  };
+
 
   return (
-    <nav className="bg-white dark:bg-gray-900 shadow-md fixed w-full z-50" role="navigation" aria-label="Menu principale">
+    <nav
+      className="bg-white dark:bg-gray-900 shadow-md fixed w-full z-50"
+      role="navigation"
+      aria-label="Menu principale"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
 
           {/* Logo */}
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             className="text-2xl font-bold text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             aria-label="Torna alla homepage"
           >
@@ -26,7 +39,7 @@ export const Navbar = ({ darkMode, toggleDarkMode }) => {
 
           {/* Menu categorie */}
           <div className="hidden md:flex space-x-6">
-            {categories.map(cat => {
+            {categories.map((cat) => {
               const Icon = cat.icon;
               return (
                 <NavLink
@@ -34,7 +47,9 @@ export const Navbar = ({ darkMode, toggleDarkMode }) => {
                   to={`/category/${cat.slug}`}
                   className={({ isActive }) =>
                     `flex items-center gap-1 px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                      isActive ? "bg-gray-200 dark:bg-gray-700 font-semibold" : "text-gray-700 dark:text-gray-300"
+                      isActive
+                        ? "bg-gray-200 dark:bg-gray-700 font-semibold"
+                        : "text-gray-700 dark:text-gray-300"
                     }`
                   }
                   aria-label={`Vai alla categoria ${cat.name}`}
@@ -46,7 +61,7 @@ export const Navbar = ({ darkMode, toggleDarkMode }) => {
             })}
           </div>
 
-          {/* Right side: favorites, toggle */}
+          {/* Right side: favorites + toggle */}
           <div className="flex items-center gap-4">
             <Link
               to="/favorites"
@@ -58,12 +73,16 @@ export const Navbar = ({ darkMode, toggleDarkMode }) => {
 
             {/* Toggle Dark/Light */}
             <button
-              onClick={toggleDarkMode}
+              onClick={handleToggle}
               className="p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
               aria-label={darkMode ? "Attiva modalità chiara" : "Attiva modalità scura"}
               aria-pressed={darkMode}
             >
-              {darkMode ? <Sun className="w-5 h-5 text-yellow-400" aria-hidden="true" /> : <Moon className="w-5 h-5 text-gray-600 dark:text-gray-300" aria-hidden="true" />}
+              {darkMode ? (
+                <Sun className="w-5 h-5 text-yellow-400" aria-hidden="true" />
+              ) : (
+                <Moon className="w-5 h-5 text-gray-600 dark:text-gray-300" aria-hidden="true" />
+              )}
             </button>
           </div>
         </div>
