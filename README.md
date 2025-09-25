@@ -1,12 +1,112 @@
-# React + Vite
+WorldNews
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+WorldNews è un’applicazione di news moderna, costruita con React, React Router, e Tailwind CSS, che consente agli utenti di leggere notizie, filtrare per categoria, cercare articoli e salvare i preferiti.
 
-Currently, two official plugins are available:
+🔹 Tecnologie utilizzate
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+React 18 – libreria principale per il frontend.
 
-## Expanding the ESLint configuration
+React Router DOM – gestione delle rotte e navigazione tra pagine.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Tailwind CSS – styling rapido e responsive con utility classes.
+
+Vite – tool moderno per build e dev server veloce.
+
+Lucide React – libreria di icone SVG leggere e moderne.
+
+GNews API – fonte ufficiale per le notizie.
+
+LocalStorage – persistenza dei preferiti e della modalità Dark/Light.
+
+🔹 Funzionalità
+Navbar (sempre visibile)
+
+Logo “WorldNews”.
+
+Menu categorie con icone: 🌐 World | ⚽ Sport | 💻 Tech | 💼 Business | 🎨 Culture.
+
+Search bar con input e icona.
+
+Icona ⭐ Preferiti.
+
+Toggle Dark/Light mode persistente.
+
+Home (/)
+
+Hero Breaking News con articolo principale in evidenza e immagine.
+
+Grid notizie recenti (3 colonne desktop, 1 colonna mobile).
+
+Bottone “Vedi tutte le notizie” → scroll verso la grid.
+
+Categoria (/category/[slug])
+
+Titolo categoria con icona.
+
+Grid con articoli filtrati dalla API GNews.
+
+Fallback se non ci sono articoli.
+
+Supporto per tutte le categorie: World, Sport, Tech, Business, Culture.
+
+Dettaglio articolo (/article/[id])
+
+Immagine principale dell’articolo presa dalla API.
+
+Titolo + fonte + data.
+
+Estratto contenuto.
+
+Bottone ⭐ “Aggiungi ai preferiti”.
+
+Bottone “Leggi l’articolo completo” → link esterno.
+
+Ricerca (/search)
+
+Input persistente in alto.
+
+Grid risultati con stile simile alla categoria.
+
+Messaggio “Nessun risultato trovato” se vuoto.
+
+Preferiti (/favorites)
+
+Lista articoli salvati dall’utente.
+
+Pulsante “Rimuovi dai preferiti”.
+
+Salvataggio in LocalStorage se utente non loggato.
+
+Footer
+
+Link: About | Privacy | API Source
+
+Credits © 2025 WorldNews
+
+src/
+│
+├─ api/
+│  └─ gnews.js               # Funzioni per chiamare la API GNews
+│
+├─ components/
+│  ├─ Navbar.jsx
+│  ├─ Footer.jsx
+│  ├─ ArticleCard.jsx
+│  ├─ SearchBar.jsx
+│  └─ Header.jsx
+│
+├─ context/
+│  └─ FavoritesContext.jsx   # Gestione preferiti e LocalStorage
+│
+├─ pages/
+│  ├─ Home.jsx
+│  ├─ Category.jsx
+│  ├─ Article.jsx
+│  ├─ Search.jsx
+│  └─ Favorites.jsx
+│
+├─ utils/
+│  └─ utils.js               # Array categories, helper formatDate, ecc.
+│
+├─ App.jsx
+└─ main.jsx                  # Entry point React con React Router
