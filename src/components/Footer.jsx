@@ -75,7 +75,7 @@ export const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 pt-8 mt-8 text-center text-gray-400">
-          <p>&copy; 2025 WorldNews. Tutti i diritti riservati.</p>
+          <p>&copy; 2025 WorldNews. Tutti i diritti riservati. Made by: Federico Zullo</p>
         </div>
       </div>
     </footer>
