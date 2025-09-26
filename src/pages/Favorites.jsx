@@ -55,7 +55,7 @@ export const Favorites = () => {
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                   <Link 
                     to={`/article/${encodeURIComponent(article.url)}`}
-                    state={{ article }} // <-- passiamo l'articolo intero
+                    state={{ article }} 
                     className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
                     {article.title}
@@ -69,7 +69,7 @@ export const Favorites = () => {
                 <div className="flex gap-3">
                   <Link
                     to={`/article/${encodeURIComponent(article.url)}`}
-                    state={{ article }} // <-- passiamo l'articolo intero
+                    state={{ article }} 
                     className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
                   >
                     Leggi articolo

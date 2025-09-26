@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Globe, Zap, Cpu, Briefcase, Palette, Star, Sun, Moon } from "lucide-react";
 import { toggleDarkMode, initDarkMode, categories } from "../utils/utils";
-import { SearchBar } from "./SearchBar"; // <--- importa la tua SearchBar
+import { SearchBar } from "./SearchBar"; 
 
 export const Navbar = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -34,7 +34,7 @@ export const Navbar = () => {
             className="text-2xl font-bold text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             aria-label="Torna alla homepage"
           >
-            WorldNews
+           OggiNews
           </Link>
 
           {/* Menu categorie */}
