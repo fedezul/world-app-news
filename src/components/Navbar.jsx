@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Globe, Zap, Cpu, Briefcase, Palette, Star, Sun, Moon } from "lucide-react";
 import { toggleDarkMode, initDarkMode, categories } from "../utils/utils";
+import { SearchBar } from "./SearchBar"; // <--- importa la tua SearchBar
 
 export const Navbar = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -17,7 +18,6 @@ export const Navbar = () => {
     toggleDarkMode();
     setDarkMode(document.documentElement.classList.contains("dark"));
   };
-
 
   return (
     <nav
@@ -61,8 +61,14 @@ export const Navbar = () => {
             })}
           </div>
 
-          {/* Right side: favorites + toggle */}
+          {/* Right side: search + favorites + toggle */}
           <div className="flex items-center gap-4">
+            {/* Barra di ricerca */}
+            <div className="hidden sm:block w-48 lg:w-64">
+              <SearchBar />
+            </div>
+
+            {/* Preferiti */}
             <Link
               to="/favorites"
               className="text-gray-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-400"
