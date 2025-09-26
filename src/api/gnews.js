@@ -1,5 +1,6 @@
 
-const API_KEY='9dd318fe39d2f9922ba7aaa6236b1e2b';
+// const API_KEY='9dd318fe39d2f9922ba7aaa6236b1e2b';
+const API_KEY=import.meta.env.VITE_API_KEY;
 
 export const gnewsAPI = {
   getTopHeadlines: async () => {
