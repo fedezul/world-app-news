@@ -1,7 +1,7 @@
 export default async function handler(req, res) {
   try {
     const { category, query } = req.query;
-    const API_KEY = process.env.VITE_API_KEY;
+    const API_KEY = process.env.GNEWS_API_KEY;
 
     let url = `https://gnews.io/api/v4/top-headlines?token=${API_KEY}&lang=it`;
 
