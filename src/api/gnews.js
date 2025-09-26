@@ -1,5 +1,5 @@
 
-const API_KEY='9dd318fe39d2f9922ba7aaa6236b1e2b';
+const API_KEY=process.env.GNEWS_TOKEN;
 
 export const gnewsAPI = {
   getTopHeadlines: async () => {
