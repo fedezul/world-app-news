@@ -38,23 +38,24 @@ export const Home = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-8">
       {/* Hero Section */}
       {featuredArticle && (
         <section className="mb-12">
           <div className="flex items-center gap-2 mb-6">
             <Zap className="w-5 h-5 text-red-500" />
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
               Breaking News
             </h2>
           </div>
+          {/* passo la prop featured per gestire font diversi */}
           <ArticleCard article={featuredArticle} featured />
         </section>
       )}
 
       {/* Latest News Grid */}
       <section>
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-6">
           Ultime Notizie
         </h2>
 
