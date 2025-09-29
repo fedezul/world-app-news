@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Globe, Zap, Cpu, Briefcase, Palette, Star, Sun, Moon, Menu, X } from "lucide-react";
+import { Star, Sun, Moon, Menu, X } from "lucide-react";
 import { toggleDarkMode, initDarkMode, categories } from "../utils/utils";
 import { SearchBar } from "./SearchBar";
 
@@ -37,8 +37,8 @@ export const Navbar = () => {
             OggiNews
           </Link>
 
-          {/* Menu categorie - visibile solo desktop */}
-          <div className="hidden md:flex space-x-6">
+          {/* Menu categorie - visibile solo su lg+ */}
+          <div className="hidden lg:flex space-x-6">
             {categories.map((cat) => {
               const Icon = cat.icon;
               return (
@@ -61,8 +61,8 @@ export const Navbar = () => {
             })}
           </div>
 
-          {/* Right side desktop */}
-          <div className="hidden md:flex items-center gap-4">
+          {/* Right side desktop (solo da lg in su) */}
+          <div className="hidden lg:flex items-center gap-4">
             {/* Barra di ricerca */}
             <div className="w-48 lg:w-64">
               <SearchBar />
@@ -92,9 +92,9 @@ export const Navbar = () => {
             </button>
           </div>
 
-          {/* Mobile hamburger button */}
-          <div className="md:hidden flex items-center gap-2">
-            {/* Preferiti (anche su mobile) */}
+          {/* Mobile / Tablet hamburger + icone */}
+          <div className="lg:hidden flex items-center gap-2">
+            {/* Preferiti (mobile/tablet) */}
             <Link
               to="/favorites"
               className="text-gray-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400"
@@ -130,7 +130,7 @@ export const Navbar = () => {
 
       {/* Mobile dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-900 shadow-lg border-t dark:border-gray-700">
+        <div className="lg:hidden bg-white dark:bg-gray-900 shadow-lg border-t dark:border-gray-700">
           <div className="p-4 space-y-4">
             {/* Searchbar */}
             <SearchBar />
