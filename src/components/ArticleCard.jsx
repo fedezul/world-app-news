@@ -60,7 +60,14 @@ export const ArticleCard = ({ article, className = "", featured = false }) => {
           </time>
         </div>
 
-        <h3 className={`font-bold mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors ${featured ? 'text-2xl text-white' : 'text-lg text-gray-900 dark:text-white'}`}>
+        {/* Titolo responsivo */}
+        <h3
+          className={`font-bold mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors ${
+            featured
+              ? 'text-base sm:text-lg md:text-xl lg:text-2xl text-white leading-snug break-normal max-w-md'
+              : 'text-lg text-gray-900 dark:text-white'
+          }`}
+        >
           {article.title}
         </h3>
 
