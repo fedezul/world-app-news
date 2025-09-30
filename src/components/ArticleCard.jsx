@@ -60,13 +60,16 @@ export const ArticleCard = ({ article, className = "", featured = false }) => {
           </time>
         </div>
 
-        {/* Titolo responsivo */}
+        {/* Titolo responsivo migliorato */}
         <h3
-          className={`font-bold mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors ${
+          className={`font-bold mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors whitespace-normal break-normal ${
             featured
-              ? 'text-base sm:text-lg md:text-xl lg:text-2xl text-white leading-snug break-normal max-w-md'
+              // Se Tailwind JIT/Arbitrary classes disponibili -> clamp per testo fluido
+              // Fallback a classi responsive tradizionali se clamp non supportato
+              ? 'text-[clamp(1rem,4.5vw,2rem)] sm:text-lg md:text-xl lg:text-2xl leading-snug max-w-[70%] md:max-w-md'
               : 'text-lg text-gray-900 dark:text-white'
           }`}
+          style={featured ? { wordBreak: 'normal' } : undefined}
         >
           {article.title}
         </h3>
